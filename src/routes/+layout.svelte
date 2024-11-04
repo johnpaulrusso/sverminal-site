@@ -45,6 +45,7 @@
 			aria-hidden="true"
 			class="hidden w-full flex-col font-mono sm:flex sm:w-auto sm:flex-row sm:items-center"
 		>
+            <a href="/demo" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem">Home</a>
 			<a href="/demo" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem">Demo</a>
 			<a href="/documentation" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem"
 				>Documentation</a
@@ -93,10 +94,11 @@
 >
 	<div class="flex w-full grow items-center justify-between text-center">
 		<div class="font-sm flex grow flex-col gap-4 font-mono">
+            <a href="/">Home</a>
 			<a href="/#getting-started">Getting Started</a>
 			<a href="/demo">Live Demo</a>
 			<a href="/documentation">Documentation</a>
-			<div>Contribute</div>
+			<a href="https://github.com/johnpaulrusso/sverminal">Contribute</a>
 		</div>
 	</div>
 	<div class="text-xs">Copyright &copy; 2024</div>

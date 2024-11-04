@@ -4,6 +4,7 @@
 	import github from 'svelte-highlight/styles/github-dark-dimmed';
 	import bash from 'svelte-highlight/languages/bash';
 	import typescript from 'svelte-highlight/languages/typescript';
+    import javascript from 'svelte-highlight/languages/javascript';
 
 	const importCode = `import \{ Sverminal \} from 'sverminal';`;
 
@@ -12,6 +13,14 @@
 \}`;
 
 	const componentCode = `\<Sverminal {processor}\/\>`;
+
+    const tailwindCode = `export default {
+	content: [
+        './src/**/*.{html,js,svelte,ts}', 
+        './node_modules/sverminal/**/*.{html,svelte,js,ts}'
+    ],
+}
+`
 </script>
 
 <svelte:head>
@@ -54,12 +63,12 @@
 			class="rounded-md bg-gradient-to-br from-gray-800 to-gray-700 p-4 text-white shadow-xl"
 		>
 			<h1 class="pb-4 pt-8 text-2xl font-semibold">Getting Started</h1>
-			<p class="pb-6 text-sm">
+			<p class="pb-6">
 				Integrating Sverminal into an existing Svelte project is pretty straightforward...
 			</p>
 
 			<h3 class="pb-2 pt-6 text-lg font-semibold">Step 1. Installation</h3>
-			<p class="pb-2 text-sm">
+			<p class="pb-2">
 				Install the latest <a class="text-purple-400" href="https://www.npmjs.com/package/sverminal"
 					>npm</a
 				> package of Sverminal.
@@ -67,23 +76,29 @@
 			<Highlight language={bash} code={`npm install sverminal`} class="py-4" />
 
 			<h3 class="pb-2 pt-6 text-lg font-semibold">Step 2. Import the Sverminal Component</h3>
-			<p class="pb-2 text-sm">
+			<p class="pb-2">
 				After installation, import the Sverminal component into your Svelte project...
 			</p>
 			<HighlightSvelte code={importCode} class="py-4" />
 
 			<h3 class="pb-2 pt-6 text-lg font-semibold">Step 3. Define a Command Handling Function</h3>
-			<p class="pb-2 text-sm">
+			<p class="pb-2">
 				Create a command handling function to manage commands entered in Sverminal...
 			</p>
 			<Highlight language={typescript} code={commandCode} class="py-4" />
 
 			<h3 class="pb-2 pt-6 text-lg font-semibold">Step 4. Create the Sverminal Component</h3>
-			<p class="pb-2 text-sm">Finally, add the Sverminal component to your app...</p>
+			<p class="pb-2">Add the Sverminal component to your app...</p>
 			<HighlightSvelte code={componentCode} class="py-4" />
 
-			<h3 class="pb-2 pt-6 text-lg font-semibold">Step 5. Explore the Documentation</h3>
-			<p class="pb-2 text-sm">
+            <h3 class="pb-2 pt-6 text-lg font-semibold">Step 5. Update your Tailwind Configuration</h3>
+			<p class="pb-2">
+				Finally, to correctly render the tailwind styles used by the Sverminal component, you must add the install location to your Tailwind configuration like below...
+			</p>
+			<Highlight language={javascript} code={tailwindCode} class="py-4" />
+
+			<h3 class="pb-2 pt-6 text-lg font-semibold">Step 6. Explore the Documentation</h3>
+			<p class="pb-2">
 				After integrating Sverminal into your app, explore the <a
 					href="/documentation"
 					class="text-purple-400">Documentation</a
