@@ -6,7 +6,7 @@
 
 <header>
 	<div
-		class="flex h-16 w-full items-center justify-between border-b-[1px] border-slate-600 bg-gradient-to-r from-slate-950 to-slate-900 px-2 text-white"
+		class="flex h-16 w-full items-center justify-between border-b-[1px] border-gray-600 bg-gradient-to-r from-gray-950 to-gray-900 px-2 text-white"
 	>
 		<a class="flex items-center justify-around gap-2 font-mono text-2xl" href="/">
 			<Logo size={32} />
@@ -45,14 +45,14 @@
 			aria-hidden="true"
 			class="hidden w-full flex-col font-mono sm:flex sm:w-auto sm:flex-row sm:items-center"
 		>
-			<a href="/demo" class="px-4 py-2 text-white hover:text-slate-300" role="menuitem">Demo</a>
-			<a href="/documentation" class="px-4 py-2 text-white hover:text-slate-300" role="menuitem"
+			<a href="/demo" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem">Demo</a>
+			<a href="/documentation" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem"
 				>Documentation</a
 			>
 			<a
 				href="https://github.com/johnpaulrusso/sverminal"
 				aria-label="Link to Github Repository"
-				class="px-4 py-2 text-white hover:text-slate-300"
+				class="px-4 py-2 text-white hover:text-gray-300"
 				role="menuitem"
 			>
 				<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -68,18 +68,18 @@
 			id="dropdown-menu"
 			role="menu"
 			tabindex="0"
-			on:mouseleave={() => {
+			onmouseleave={() => {
 				// hideMenu();
 			}}
 			aria-hidden="true"
-			class="absolute right-4 top-14 z-10 hidden flex-col bg-gradient-to-r from-slate-700 to-slate-600 p-4 shadow-lg"
+			class="absolute right-4 top-14 z-10 hidden flex-col bg-gradient-to-r from-gray-700 to-gray-600 p-4 shadow-lg"
 		>
-			<a href="/" class="px-4 py-2 text-white hover:text-slate-300" role="menuitem">Home</a>
-			<a href="/about" class="px-4 py-2 text-white hover:text-slate-300" role="menuitem">About</a>
-			<a href="/docs" class="px-4 py-2 text-white hover:text-slate-300" role="menuitem"
+			<a href="/" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem">Home</a>
+			<a href="/about" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem">About</a>
+			<a href="/docs" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem"
 				>Documentation</a
 			>
-			<a href="/report" class="px-4 py-2 text-white hover:text-slate-300" role="menuitem">Report</a>
+			<a href="/report" class="px-4 py-2 text-white hover:text-gray-300" role="menuitem">Report</a>
 		</div>
 	</div>
 </header>
@@ -89,13 +89,13 @@
 </div>
 
 <footer
-	class="flex min-h-64 w-full flex-col items-center justify-center border-t-[1px] border-slate-600 bg-gradient-to-r from-slate-950 to-slate-900 p-4 pt-0 text-white"
+	class="flex min-h-64 w-full flex-col items-center justify-center border-t-[1px] border-gray-600 bg-gradient-to-r from-gray-950 to-gray-900 p-4 pt-0 text-white"
 >
 	<div class="flex w-full grow items-center justify-between text-center">
 		<div class="font-sm flex grow flex-col gap-4 font-mono">
 			<a href="/#getting-started">Getting Started</a>
-			<div>Live Demo</div>
-			<div>Documentation</div>
+			<a href="/demo">Live Demo</a>
+			<a href="/documentation">Documentation</a>
 			<div>Contribute</div>
 		</div>
 	</div>

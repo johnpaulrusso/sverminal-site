@@ -41,7 +41,7 @@
 				>
 				<a
 					href="/demo"
-					class="flex h-12 w-auto items-center justify-center rounded-lg border-2 border-sky-500 px-6 text-sky-500 hover:border-sky-400 hover:bg-slate-100 hover:text-sky-400"
+					class="flex h-12 w-auto items-center justify-center rounded-lg border-2 border-sky-500 px-6 text-sky-500 hover:border-sky-400 hover:bg-gray-100 hover:text-sky-400"
 					>Live Demo</a
 				>
 			</div>
@@ -51,7 +51,7 @@
 		</section>
 		<section
 			id="getting-started"
-			class="rounded-md bg-gradient-to-br from-slate-800 to-slate-700 p-4 text-white shadow-xl"
+			class="rounded-md bg-gradient-to-br from-gray-800 to-gray-700 p-4 text-white shadow-xl"
 		>
 			<h1 class="pb-4 pt-8 text-2xl font-semibold">Getting Started</h1>
 			<p class="pb-6 text-sm">
@@ -97,8 +97,8 @@
 <style lang="postcss">
 	:global(body) {
 		@apply bg-gradient-to-tl;
-		@apply from-slate-800;
-		@apply to-slate-700;
+		@apply from-gray-800;
+		@apply to-gray-700;
 	}
 
 	:global(html) {
