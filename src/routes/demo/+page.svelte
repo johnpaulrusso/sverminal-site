@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../../app.css'
+	import '../../app.css';
 	import { Sverminal } from 'sverminal';
 	import { SverminalResponseTarget, SverminalWriter } from 'sverminal';
 	import customConfig from '$lib/demoConfig.js';
@@ -231,118 +231,119 @@
 	}
 </script>
 
-<div class="w-full flex justify-center bg-gradient-to-br from-gray-700 to-gray-800">
-<div class="w-full container flex flex-col items-center justify-center">
+<div class="flex w-full justify-center bg-gradient-to-br from-gray-700 to-gray-800">
+	<div class="container flex w-full flex-col items-center justify-center">
+		<h1 class="w-full px-4 pb-4 pt-8 text-left text-xl font-semibold text-gray-100">
+			Welcome to the Sverminal Live Demo!
+		</h1>
+		<h3 class="w-full px-4 pb-8 pt-0 text-left text-gray-100">
+			Please refer to the table below for usage.
+		</h3>
 
-    <h1 class="w-full px-4 text-left pt-8 pb-4 text-gray-100 font-semibold text-xl">Welcome to the Sverminal Live Demo!</h1>
-    <h3 class="w-full px-4 text-left pt-0 pb-8 text-gray-100">Please refer to the table below for usage.</h3>
-
-<div class="w-full h-96 p-4 overflow-auto">
-    <Sverminal
-        processor={processCommand}
-        reader={sverminalReader}
-        writer={sverminalWriter}
-        promptPrefix="sverminal"
-        config={customConfig}
-        enableUI={showSplit}
-        {autoCompletes}
-        on:get-current-command={getCurrentCommand}
-    />
-</div>
-<div class="w-full px-4 text-left p-4 pb-16 text-gray-100">
-    <h3 class="text-xl py-4 font-semibold">
-        Controls & Demo Commands
-    </h3>
-    <div class="overflow-hidden rounded-md border border-gray-700 shadow-lg">
-        <table class="min-w-fulltext-sm md:text-base bg-gray-900 text-gray-400 ">
-            <tbody>
-                <tr class="w-full bg-gray-950">
-                    <th class="py-2 px-4 border-b text-left text-gray-200 font-semibold"
-                        >Command/Input</th
-                    >
-                    <th class="py-2 px-4 border-b  text-left text-gray-200 font-semibold"
-                        >Arguments</th
-                    >
-                    <th class="py-2 px-4 border-b  text-left text-gray-200 font-semibold"
-                        >Description</th
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">Enter key</td>
-                    <td class="py-2 px-4 border-b border-gray-700">N/A</td>
-                    <td class="py-2 px-4 border-b border-gray-700">Submit current command or input.</td>
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">Up/Down arrows keys</td>
-                    <td class="py-2 px-4 border-b border-gray-700">N/A</td>
-                    <td class="py-2 px-4 border-b border-gray-700">Navigate command history.</td>
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">Tab key</td>
-                    <td class="py-2 px-4 border-b border-gray-700">N/A</td>
-                    <td class="py-2 px-4 border-b border-gray-700">Auto-complete. In this demo, autocomplete supports the list of commands below. For example, typing 'f' and then hitting the tab key would result in an auto-completion of 'freeform-demo'.</td>
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">echo</td>
-                    <td class="py-2 px-4 border-b border-gray-700">message &lt;string&gt;</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Prints the message back to the terminal.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">warn</td>
-                    <td class="py-2 px-4 border-b border-gray-700">message &lt;string&gt;</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Prints a warning message back to the terminal.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">error</td>
-                    <td class="py-2 px-4 border-b border-gray-700">message &lt;string&gt;</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Prints an error message back to the terminal.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">info</td>
-                    <td class="py-2 px-4 border-b border-gray-700">message &lt;string&gt;</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Prints an info message back to the terminal.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">countdown</td>
-                    <td class="py-2 px-4 border-b border-gray-700">1-99 &lt;number&gt;</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Counts down from the provided number every seconds and prints the value to the
-                        terminal.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">freeform-demo</td>
-                    <td class="py-2 px-4 border-b border-gray-700">None</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Prints out block of text that demostrates the ability to mix styles.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">input-demo</td>
-                    <td class="py-2 px-4 border-b border-gray-700">None</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Demonstrates the ability to request additional user input while processing a command.</td
-                    >
-                </tr>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-700">split-demo</td>
-                    <td class="py-2 px-4 border-b border-gray-700">Run command for argument list.</td>
-                    <td class="py-2 px-4 border-b border-gray-700"
-                        >Demonstrates the ability to split the terminal vertically. The vertical view can be
-                        used to display additional information to the user.</td
-                    >
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
+		<div class="h-96 w-full overflow-auto p-4">
+			<Sverminal
+				processor={processCommand}
+				reader={sverminalReader}
+				writer={sverminalWriter}
+				promptPrefix="sverminal"
+				config={customConfig}
+				enableUI={showSplit}
+				{autoCompletes}
+				on:get-current-command={getCurrentCommand}
+			/>
+		</div>
+		<div class="w-full p-4 px-4 pb-16 text-left text-gray-100">
+			<h3 class="py-4 text-xl font-semibold">Controls & Demo Commands</h3>
+			<div class="overflow-hidden rounded-md border border-gray-700 shadow-lg">
+				<table class="min-w-fulltext-sm bg-gray-900 text-gray-400 md:text-base">
+					<tbody>
+						<tr class="w-full bg-gray-950">
+							<th class="border-b px-4 py-2 text-left font-semibold text-gray-200">Command/Input</th
+							>
+							<th class="border-b px-4 py-2 text-left font-semibold text-gray-200">Arguments</th>
+							<th class="border-b px-4 py-2 text-left font-semibold text-gray-200">Description</th>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">Enter key</td>
+							<td class="border-b border-gray-700 px-4 py-2">N/A</td>
+							<td class="border-b border-gray-700 px-4 py-2">Submit current command or input.</td>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">Up/Down arrows keys</td>
+							<td class="border-b border-gray-700 px-4 py-2">N/A</td>
+							<td class="border-b border-gray-700 px-4 py-2">Navigate command history.</td>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">Tab key</td>
+							<td class="border-b border-gray-700 px-4 py-2">N/A</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Auto-complete. In this demo, autocomplete supports the list of commands below. For
+								example, typing 'f' and then hitting the tab key would result in an auto-completion
+								of 'freeform-demo'.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">echo</td>
+							<td class="border-b border-gray-700 px-4 py-2">message &lt;string&gt;</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Prints the message back to the terminal.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">warn</td>
+							<td class="border-b border-gray-700 px-4 py-2">message &lt;string&gt;</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Prints a warning message back to the terminal.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">error</td>
+							<td class="border-b border-gray-700 px-4 py-2">message &lt;string&gt;</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Prints an error message back to the terminal.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">info</td>
+							<td class="border-b border-gray-700 px-4 py-2">message &lt;string&gt;</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Prints an info message back to the terminal.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">countdown</td>
+							<td class="border-b border-gray-700 px-4 py-2">1-99 &lt;number&gt;</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Counts down from the provided number every seconds and prints the value to the
+								terminal.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">freeform-demo</td>
+							<td class="border-b border-gray-700 px-4 py-2">None</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Prints out block of text that demostrates the ability to mix styles.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">input-demo</td>
+							<td class="border-b border-gray-700 px-4 py-2">None</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Demonstrates the ability to request additional user input while processing a
+								command.</td
+							>
+						</tr>
+						<tr>
+							<td class="border-b border-gray-700 px-4 py-2">split-demo</td>
+							<td class="border-b border-gray-700 px-4 py-2">Run command for argument list.</td>
+							<td class="border-b border-gray-700 px-4 py-2"
+								>Demonstrates the ability to split the terminal vertically. The vertical view can be
+								used to display additional information to the user.</td
+							>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
