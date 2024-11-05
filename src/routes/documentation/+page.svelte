@@ -61,7 +61,36 @@ writer.clear() //Clears all terminal content.
 
 \<Sverminal {processor} {writer}/\>
 `;
+
+const READER_EXAMPLE = `\<script lang="ts"\>
+    import { Sverminal, SverminalReader } from 'sverminal';
+
+    let reader = new SverminalReader();
+
+    async function processor(command: string): Promise<void> {
+        // Example: any command will prompt the user for their name.
+        let name = await reader.read("What is your name?");
+    }
+\</script\>
+
+\<Sverminal {processor} {reader}/\>`;
+
+    const AUTOCOMPLETE_EXAMPLE = `\<script lang="ts"\>
+    import { Sverminal } from 'sverminal';
+
+    let autoCompletes = ['add', 'subtract', 'multiply', 'divide'];
+
+    async function processor(command: string): Promise<void> {
+        //Your processing logic here;
+    }
+\</script\>
+
+\<Sverminal {processor} {autoCompletes} on:get-current-command={getCurrentCommand}/\>`;
+
+    const AUTOCOMPLETE_ADVANCED_EXAMPLE = `\<Sverminal {processor} {autoCompletes} on:get-current-command={getCurrentCommand}/\>`;
 </script>
+
+
 
 <svelte:head>
 	{@html github}
@@ -70,9 +99,10 @@ writer.clear() //Clears all terminal content.
 <div class="flex h-full justify-center bg-gradient-to-tl from-gray-800 to-gray-700 p-4 text-white">
 	<div class="container flex flex-col gap-8 md:flex-row">
 		<!-- Sidebar with links to sections -->
-		<aside class="sticky top-4 h-fit w-full rounded-lg bg-gray-700 p-4 shadow-lg md:w-1/4">
+		<aside class="md:sticky top-4 h-fit w-full rounded-lg bg-gray-700 p-4 shadow-lg md:w-1/4">
 			<h2 class="mb-4 text-lg font-semibold">Documentation</h2>
 			<ul class="space-y-2 text-sm font-medium">
+                <li><a href="#overview" class="hover:text-purple-400">Overview</a></li>
 				<li><a href="#installation" class="hover:text-purple-400">Installation</a></li>
 				<li><a href="#configuration" class="hover:text-purple-400">Configuration</a></li>
 				<li><a href="#writer" class="hover:text-purple-400">Using the Writer</a></li>
@@ -85,14 +115,12 @@ writer.clear() //Clears all terminal content.
 		<div
 			class="w-full rounded-lg bg-gradient-to-br from-gray-800 to-gray-700 p-6 shadow-xl md:w-3/4"
 		>
-			<div class="search-bar mb-6">
-				<input
-					type="text"
-					placeholder="Search documentation..."
-					class="w-full rounded bg-gray-600 p-2 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400"
-				/>
-			</div>
-
+            <section id="overview" class="mb-8">
+                <h2 class="pb-4 text-2xl font-semibold">Overview</h2>
+                <p class="pb-2">
+                    Sverminal is a Svelte component library that provides a terminal or command line interface emulator to web application to run in the browser.
+                </p>
+            </section>
 			<!-- Documentation Sections -->
 			<section id="installation" class="mb-8">
 				<h2 class="pb-4 text-2xl font-semibold">Installation</h2>
@@ -181,16 +209,37 @@ writer.clear() //Clears all terminal content.
 
 			<section id="reader" class="mb-8">
 				<h2 class="pb-4 text-2xl font-semibold">Using the Reader</h2>
-				<p class="pb-4 text-sm">Learn to capture user input and process commands...</p>
+				<p class="pb-4">Some of your commands may require users to enter additional input. The SverminalReader class was created to accomplish this use case. Use it within the command handling function to await additional input from the user.</p>
 				<!-- Reader details and code examples go here -->
+                <InstructionStep title={'Example'} language="svelte" code={READER_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							Here is a minimal example of setting up a reader to request additional user input needed to process a command.
+						</p>
+					{/snippet}
+				</InstructionStep>
 			</section>
 
 			<section id="autocomplete" class="mb-8">
 				<h2 class="pb-4 text-2xl font-semibold">Using Autocomplete</h2>
-				<p class="pb-4 text-sm">
-					Set up autocomplete suggestions for a smoother command-line experience...
+				<p class="pb-4">
+					To enable users to operate quickly and efficiently within user-defined terminal programs, Sverminal accepts a property called <span class="font-mono">autoCompletes</span>. This property accepts a list of strings that are potential autocomplete options that automatically populate onto the prompt when the user presses the TAB key. This property can be updated with different string lists as the user interacts with the terminal.
 				</p>
 				<!-- Autocomplete details and code examples go here -->
+                <InstructionStep title={'Example'} language="svelte" code={AUTOCOMPLETE_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							Here is an example of what the autoCompletes property might be set to in a simple calculator program. Upon pressing the TAB key, the user can iterate through the commands based on existing characters already typed into the prompt.
+						</p>
+					{/snippet}
+				</InstructionStep>
+                <InstructionStep title={'Advanced'} language="svelte" code={AUTOCOMPLETE_ADVANCED_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							If you want to change the auto complete options dynamically while the user is entering a command, the component provides an event 'get-current-command'. This fires each time the user types something into the prompt and provides the active contents of the command so far.
+						</p>
+					{/snippet}
+				</InstructionStep>
 			</section>
 		</div>
 	</div>

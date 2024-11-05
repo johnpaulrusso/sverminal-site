@@ -114,19 +114,12 @@
 	}
 
 	async function runInputDemo() {
-		let name = '';
-		let quest = '';
-		let color = '';
 		sverminalWriter.echo('Please answer the following questions:');
-		await sverminalReader.read('What is your name?').then((value: string) => {
-			name = value;
-		});
-		await sverminalReader.read('What is your quest?').then((value: string) => {
-			quest = value;
-		});
-		await sverminalReader.read('What is your favorite color?').then((value: string) => {
-			color = value;
-		});
+
+		let name = await sverminalReader.read('What is your name?');
+		let quest = await sverminalReader.read('What is your quest?');
+		let color = await sverminalReader.read('What is your favorite color?');
+        
 		sverminalWriter.echo(`Your answers: ${name}, ${quest}, ${color}`);
 	}
 
