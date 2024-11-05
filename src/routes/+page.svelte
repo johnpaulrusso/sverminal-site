@@ -1,7 +1,7 @@
 <script>
 	import InstructionStep from '$lib/components/InstructionStep.svelte';
 	import Logo from '$lib/components/Logo.svelte';
-    import github from 'svelte-highlight/styles/github-dark-dimmed';
+	import github from 'svelte-highlight/styles/github-dark-dimmed';
 
 	const importCode = `import \{ Sverminal \} from 'sverminal';`;
 
@@ -64,58 +64,79 @@
 				Integrating Sverminal into an existing Svelte project is pretty straightforward...
 			</p>
 
-			<InstructionStep title={'Step 1. Installation'} language='bash' code={'npm install sverminal'}>
-                {#snippet instructions()}
-                    <p class="pb-2">
-                        Install the latest <a class="text-purple-400" href="https://www.npmjs.com/package/sverminal"
-                            >npm</a
-                        > package of Sverminal.
-                    </p>
-                {/snippet}
-            </InstructionStep>
+			<InstructionStep
+				title={'Step 1. Installation'}
+				language="bash"
+				code={'npm install sverminal'}
+			>
+				{#snippet instructions()}
+					<p class="pb-2">
+						Install the latest <a
+							class="text-purple-400"
+							href="https://www.npmjs.com/package/sverminal">npm</a
+						> package of Sverminal.
+					</p>
+				{/snippet}
+			</InstructionStep>
 
-            <InstructionStep title={'Step 2. Import the Sverminal Component'} language='svelte' code={importCode}>
-                {#snippet instructions()}
-                    <p class="pb-2">
-                        After installation, import the Sverminal component into your Svelte project...
-                    </p>
-                {/snippet}
-            </InstructionStep>
+			<InstructionStep
+				title={'Step 2. Import the Sverminal Component'}
+				language="svelte"
+				code={importCode}
+			>
+				{#snippet instructions()}
+					<p class="pb-2">
+						After installation, import the Sverminal component into your Svelte project...
+					</p>
+				{/snippet}
+			</InstructionStep>
 
-            <InstructionStep title={'Step 3. Define a Command Handling Function'} language='typescript' code={commandCode}>
-                {#snippet instructions()}
-                    <p class="pb-2">
-                        Create a command handling function to manage commands entered in Sverminal...
-                    </p>
-                {/snippet}
-            </InstructionStep>
+			<InstructionStep
+				title={'Step 3. Define a Command Handling Function'}
+				language="typescript"
+				code={commandCode}
+			>
+				{#snippet instructions()}
+					<p class="pb-2">
+						Create a command handling function to manage commands entered in Sverminal...
+					</p>
+				{/snippet}
+			</InstructionStep>
 
-            <InstructionStep title={'Step 4. Create the Sverminal Component'} language='svelte' code={componentCode}>
-                {#snippet instructions()}
-                    <p class="pb-2">Add the Sverminal component to your app...</p>
-                {/snippet}
-            </InstructionStep>
+			<InstructionStep
+				title={'Step 4. Create the Sverminal Component'}
+				language="svelte"
+				code={componentCode}
+			>
+				{#snippet instructions()}
+					<p class="pb-2">Add the Sverminal component to your app...</p>
+				{/snippet}
+			</InstructionStep>
 
-            <InstructionStep title={'Step 5. Update your Tailwind Configuration'} language='javascript' code={tailwindCode}>
-                {#snippet instructions()}
-                    <p class="pb-2">
-                        Finally, to correctly render the tailwind styles used by the Sverminal component, you must
-                        add the install location to your Tailwind configuration like below...
-                    </p>
-                {/snippet}
-            </InstructionStep>
+			<InstructionStep
+				title={'Step 5. Update your Tailwind Configuration'}
+				language="javascript"
+				code={tailwindCode}
+			>
+				{#snippet instructions()}
+					<p class="pb-2">
+						Finally, to correctly render the tailwind styles used by the Sverminal component, you
+						must add the install location to your Tailwind configuration like below...
+					</p>
+				{/snippet}
+			</InstructionStep>
 
-            <InstructionStep title={'Step 6. Explore the Documentation'}>
-                {#snippet instructions()}
-                    <p class="pb-2">
-                        After integrating Sverminal into your app, explore the <a
-                            href="/documentation"
-                            class="text-purple-400">Documentation</a
-                        > to discover all the powerful features it offers, including writing to the terminal, requesting
-                        user input, autocomplete, and much more.
-                    </p>
-                {/snippet}
-            </InstructionStep>
+			<InstructionStep title={'Step 6. Explore the Documentation'}>
+				{#snippet instructions()}
+					<p class="pb-2">
+						After integrating Sverminal into your app, explore the <a
+							href="/documentation"
+							class="text-purple-400">Documentation</a
+						> to discover all the powerful features it offers, including writing to the terminal, requesting
+						user input, autocomplete, and much more.
+					</p>
+				{/snippet}
+			</InstructionStep>
 		</section>
 	</div>
 </div>

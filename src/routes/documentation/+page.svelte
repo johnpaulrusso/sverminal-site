@@ -1,3 +1,48 @@
+<script>
+	import InstructionStep from '$lib/components/InstructionStep.svelte';
+	import github from 'svelte-highlight/styles/github-dark-dimmed';
+
+	const TAILWIND_CONFIG_EXAMPLE = `export default {
+	content: [
+        './src/**/*.{html,js,svelte,ts}', 
+        './node_modules/sverminal/**/*.{html,svelte,js,ts}'
+    ],
+}`;
+
+	const STYLE_CONFIG_EXAMPLE = `const myConfiguration = {
+    style: {
+		prompt: ['text-emerald-400'], //Ex: 'sverminal>'
+		command: ['text-violet-400'], //The first word of user input
+		flags: ['text-slate-400'], //Arguments prefixed with '-'
+		info: ['text-cyan-400'],
+		error: ['text-red-400'],
+		warn: ['text-yellow-400'], 
+		text: ['text-slate-50'] //Everything else...
+	}
+}
+`;
+
+	const HISTORY_CONFIGURATION_EXAMPLE = `const myConfiguration = {
+	history: {
+		enabled: true,
+		method: 'memory', //memory (default), sessionstorage, localstorage
+		limit: 10
+	},
+}
+`;
+
+	const MISC_CONFIGURATION_EXAMPLE = `const myConfiguration = {
+    promptSuffix: '>', //The characters to place at the end of the prompt.
+	newlineBetweenCommands: false, //If set to true, an extra line will be appended after submitting a command.
+	quoteMultiWordAutoCompletes: true //Optionally wrap multi-word auto-completes with quotes.
+}
+`;
+</script>
+
+<svelte:head>
+	{@html github}
+</svelte:head>
+
 <div class="flex h-full justify-center bg-gradient-to-tl from-gray-800 to-gray-700 p-4 text-white">
 	<div class="container flex flex-col gap-8 md:flex-row">
 		<!-- Sidebar with links to sections -->
@@ -27,17 +72,63 @@
 			<!-- Documentation Sections -->
 			<section id="installation" class="mb-8">
 				<h2 class="pb-4 text-2xl font-semibold">Installation</h2>
-				<p class="pb-4 text-sm">
-					Follow these steps to install Sverminal in your Svelte project...
-				</p>
+				<InstructionStep title={'Installation'} language="bash" code={'npm install sverminal'}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							Install the latest <a
+								class="text-purple-400"
+								href="https://www.npmjs.com/package/sverminal">npm</a
+							> package of Sverminal.
+						</p>
+					{/snippet}
+				</InstructionStep>
+				<InstructionStep title={'Tailwind'} language="javascript" code={TAILWIND_CONFIG_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							To correctly render the tailwind styles used by the Sverminal component, you must add
+							the install location to your Tailwind configuration like below.
+						</p>
+					{/snippet}
+				</InstructionStep>
 			</section>
 
 			<section id="configuration" class="mb-8">
 				<h2 class="pb-4 text-2xl font-semibold">Configuration</h2>
-				<p class="pb-4 text-sm">
-					Learn how to configure Sverminal with options suited for your needs...
+				<p class="pb-4">
+					Consumers of the Sverminal component can optionally provide a custom configuration. All
+					properties are optional and if omitted will fallback to defaults values. For convenience,
+					all examples below showcase the default values.
 				</p>
 				<!-- Configuration details and code examples go here -->
+				<InstructionStep title={'Styles'} language="javascript" code={STYLE_CONFIG_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							Each property in the style object accepts a list of CSS classes that will be applied
+							to the relevant text elements.
+						</p>
+					{/snippet}
+				</InstructionStep>
+				<InstructionStep
+					title={'Command History'}
+					language="javascript"
+					code={HISTORY_CONFIGURATION_EXAMPLE}
+				>
+					{#snippet instructions()}
+						<p class="pb-2">
+							By default Sverminal will keep track of a users command history in memory. This can be
+							disabled or further configured within a custom configuration. The limit property puts
+							a cap on the number of unique commands tracked in the specified history method. When
+							the cap is reached, newer commands will replace the oldest commands in history.
+						</p>
+					{/snippet}
+				</InstructionStep>
+				<InstructionStep title={'Misc'} language="javascript" code={MISC_CONFIGURATION_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							Here are some additional configuration options that you find useful...
+						</p>
+					{/snippet}
+				</InstructionStep>
 			</section>
 
 			<section id="writer" class="mb-8">
