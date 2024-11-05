@@ -37,6 +37,30 @@
 	quoteMultiWordAutoCompletes: true //Optionally wrap multi-word auto-completes with quotes.
 }
 `;
+
+	const WRITER_API_EXAMPLE = `writer.echo('Echo some text');
+writer.warn('Print a warning');
+writer.error('Print an error');
+writer.info('Print some information')
+writer.write('This text will be inline and green.', ['text-green-500']);
+writer.writeLink('Sverminal!', 'https://sverminal.io', ['text-purple-500']);
+writer.clear() //Clears all terminal content.
+`;
+
+	const WRITER_EXAMPLE = `
+\<script lang="ts"\>
+	import { Sverminal, SverminalWriter } from 'sverminal';
+
+	let writer = new SverminalWriter();
+
+	async function processor(command: string): Promise<void> {
+		// Example: echo the command back to the terminal.
+		writer.echo(command);
+	}
+\</script\>
+
+\<Sverminal {processor} {writer}/\>
+`;
 </script>
 
 <svelte:head>
@@ -133,8 +157,26 @@
 
 			<section id="writer" class="mb-8">
 				<h2 class="pb-4 text-2xl font-semibold">Using the Writer</h2>
-				<p class="pb-4 text-sm">Discover how to write output to the terminal...</p>
+				<p class="pb-4">The SverminalWriter class provides library users with the ability to write content back to the terminal. This could be for used for anything from simply printing error messages to the user when a command fails or developing a complex text-based user interface.</p>
 				<!-- Writer details and code examples go here -->
+				<InstructionStep title={'API'} language="javascript" code={WRITER_API_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							The writer API is pretty simple. The echo, error, warn, and info functions writer
+							their respective output to the terminal as independent lines or block display. The
+							write and writeLink functions writer their output inline which provides the client
+							more flexibility when it is desired to output more complex content.
+						</p>
+					{/snippet}
+				</InstructionStep>
+				<InstructionStep title={'Example'} language="svelte" code={WRITER_EXAMPLE}>
+					{#snippet instructions()}
+						<p class="pb-2">
+							Here is a minimal example of setting up a writer to simply echo the command back to
+							the user.
+						</p>
+					{/snippet}
+				</InstructionStep>
 			</section>
 
 			<section id="reader" class="mb-8">
