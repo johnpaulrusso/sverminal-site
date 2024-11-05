@@ -37,6 +37,6 @@
 		"vite": "^5.0.3"
 	},
 	"dependencies": {
-		"sverminal": "^0.9.1"
+		"sverminal": "^0.10.1"
 	}
 }

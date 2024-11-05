@@ -1,4 +1,6 @@
-const customConfig = {
+import type { SverminalConfiguration } from "sverminal";
+
+const customConfig: SverminalConfiguration = {
 	promptSuffix: '>',
 	style: {
 		prompt: ['text-emerald-400'],
